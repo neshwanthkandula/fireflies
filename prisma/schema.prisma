@@ -1,0 +1,123 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id  String @id 
+  clerkId String @unique
+  email String
+  name String
+  meetings Meeting[]
+
+  botName String? @default("Meeting bot")
+  botImageUrl String?
+
+  googleAccessToken String?
+  googleRefresshToken String?
+  googleTokenExpiry DateTime?
+  calenderConnected Boolean @default(false)
+
+  slackUserId String?
+  SlackTeamId String?
+  SlackConnected Boolean @default(false)
+  preferredChannelId String?
+  preferredchannelName String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model SlackInstallation{
+  id String @id @default(cuid())
+  teamId String @unique 
+  teanName String
+  botToken String @db.Text
+  installedBy String
+  installerName String?
+  active Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Meeting{
+  id String @id @default(cuid())
+  userId String
+  title String
+  description String?
+  meetingUrl String?
+  startTime DateTime
+  endTime DateTime
+  attendees Json?
+
+  calenderEventId String? @unique
+  isFormCalender Boolean @default(false)
+
+  botScheduled Boolean @default(true)
+  botSent Boolean @default(false)
+  botId String?
+  botJoinedAt DateTime?
+
+  meetingEnded Boolean @default(false)
+  transcriptReddy Boolean @default(false)
+  transcript Json?
+  recordingUrl String?
+  speakers Json?
+
+  summary String?
+  actionItems Json?
+  processes Boolean @default(false)
+  processedAt DateTime?
+  emailSent Boolean @default(false)
+  emailSentAt DateTime?
+  ragprocessed Boolean @default(false)
+  ragProcessedAt DateTime?
+  User User @relation(fields: [ userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  TranscriptChunk TranscriptChunk[]
+}
+
+model UserIntegration{
+  id String @id @default(cuid())
+  userId String
+  platform String
+  accessToken String @db.Text
+  refreshToken String? @db.Text
+  expiresAt DateTime?
+
+  boardId String?
+  boardName String?
+  projectIId String?
+  projectName String?
+  workspaceId String?
+  domain String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // prevent duplicate integraation with same platform
+  @@unique([userId , platform]) 
+}
+
+model TranscriptChunk{
+  id String @id @default(cuid())
+  meetingId String
+  chunkIndex Int 
+  content String @db.Text 
+  speakerName String?
+  vectorId String?
+  createdAt DateTime @default(now())
+  meeting Meeting @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+}
