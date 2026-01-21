@@ -33,7 +33,7 @@ export type UserIntegrationMinAggregateOutputType = {
   expiresAt: Date | null
   boardId: string | null
   boardName: string | null
-  projectIId: string | null
+  projectId: string | null
   projectName: string | null
   workspaceId: string | null
   domain: string | null
@@ -50,7 +50,7 @@ export type UserIntegrationMaxAggregateOutputType = {
   expiresAt: Date | null
   boardId: string | null
   boardName: string | null
-  projectIId: string | null
+  projectId: string | null
   projectName: string | null
   workspaceId: string | null
   domain: string | null
@@ -67,7 +67,7 @@ export type UserIntegrationCountAggregateOutputType = {
   expiresAt: number
   boardId: number
   boardName: number
-  projectIId: number
+  projectId: number
   projectName: number
   workspaceId: number
   domain: number
@@ -86,7 +86,7 @@ export type UserIntegrationMinAggregateInputType = {
   expiresAt?: true
   boardId?: true
   boardName?: true
-  projectIId?: true
+  projectId?: true
   projectName?: true
   workspaceId?: true
   domain?: true
@@ -103,7 +103,7 @@ export type UserIntegrationMaxAggregateInputType = {
   expiresAt?: true
   boardId?: true
   boardName?: true
-  projectIId?: true
+  projectId?: true
   projectName?: true
   workspaceId?: true
   domain?: true
@@ -120,7 +120,7 @@ export type UserIntegrationCountAggregateInputType = {
   expiresAt?: true
   boardId?: true
   boardName?: true
-  projectIId?: true
+  projectId?: true
   projectName?: true
   workspaceId?: true
   domain?: true
@@ -210,7 +210,7 @@ export type UserIntegrationGroupByOutputType = {
   expiresAt: Date | null
   boardId: string | null
   boardName: string | null
-  projectIId: string | null
+  projectId: string | null
   projectName: string | null
   workspaceId: string | null
   domain: string | null
@@ -248,7 +248,7 @@ export type UserIntegrationWhereInput = {
   expiresAt?: Prisma.DateTimeNullableFilter<"UserIntegration"> | Date | string | null
   boardId?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
   boardName?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
-  projectIId?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
+  projectId?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
   projectName?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
   workspaceId?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
   domain?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
@@ -265,7 +265,7 @@ export type UserIntegrationOrderByWithRelationInput = {
   expiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   boardId?: Prisma.SortOrderInput | Prisma.SortOrder
   boardName?: Prisma.SortOrderInput | Prisma.SortOrder
-  projectIId?: Prisma.SortOrderInput | Prisma.SortOrder
+  projectId?: Prisma.SortOrderInput | Prisma.SortOrder
   projectName?: Prisma.SortOrderInput | Prisma.SortOrder
   workspaceId?: Prisma.SortOrderInput | Prisma.SortOrder
   domain?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -286,7 +286,7 @@ export type UserIntegrationWhereUniqueInput = Prisma.AtLeast<{
   expiresAt?: Prisma.DateTimeNullableFilter<"UserIntegration"> | Date | string | null
   boardId?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
   boardName?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
-  projectIId?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
+  projectId?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
   projectName?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
   workspaceId?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
   domain?: Prisma.StringNullableFilter<"UserIntegration"> | string | null
@@ -303,7 +303,7 @@ export type UserIntegrationOrderByWithAggregationInput = {
   expiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   boardId?: Prisma.SortOrderInput | Prisma.SortOrder
   boardName?: Prisma.SortOrderInput | Prisma.SortOrder
-  projectIId?: Prisma.SortOrderInput | Prisma.SortOrder
+  projectId?: Prisma.SortOrderInput | Prisma.SortOrder
   projectName?: Prisma.SortOrderInput | Prisma.SortOrder
   workspaceId?: Prisma.SortOrderInput | Prisma.SortOrder
   domain?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -326,7 +326,7 @@ export type UserIntegrationScalarWhereWithAggregatesInput = {
   expiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"UserIntegration"> | Date | string | null
   boardId?: Prisma.StringNullableWithAggregatesFilter<"UserIntegration"> | string | null
   boardName?: Prisma.StringNullableWithAggregatesFilter<"UserIntegration"> | string | null
-  projectIId?: Prisma.StringNullableWithAggregatesFilter<"UserIntegration"> | string | null
+  projectId?: Prisma.StringNullableWithAggregatesFilter<"UserIntegration"> | string | null
   projectName?: Prisma.StringNullableWithAggregatesFilter<"UserIntegration"> | string | null
   workspaceId?: Prisma.StringNullableWithAggregatesFilter<"UserIntegration"> | string | null
   domain?: Prisma.StringNullableWithAggregatesFilter<"UserIntegration"> | string | null
@@ -343,7 +343,7 @@ export type UserIntegrationCreateInput = {
   expiresAt?: Date | string | null
   boardId?: string | null
   boardName?: string | null
-  projectIId?: string | null
+  projectId?: string | null
   projectName?: string | null
   workspaceId?: string | null
   domain?: string | null
@@ -360,7 +360,7 @@ export type UserIntegrationUncheckedCreateInput = {
   expiresAt?: Date | string | null
   boardId?: string | null
   boardName?: string | null
-  projectIId?: string | null
+  projectId?: string | null
   projectName?: string | null
   workspaceId?: string | null
   domain?: string | null
@@ -377,7 +377,7 @@ export type UserIntegrationUpdateInput = {
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   boardId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   boardName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projectIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   workspaceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   domain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -394,7 +394,7 @@ export type UserIntegrationUncheckedUpdateInput = {
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   boardId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   boardName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projectIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   workspaceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   domain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -411,7 +411,7 @@ export type UserIntegrationCreateManyInput = {
   expiresAt?: Date | string | null
   boardId?: string | null
   boardName?: string | null
-  projectIId?: string | null
+  projectId?: string | null
   projectName?: string | null
   workspaceId?: string | null
   domain?: string | null
@@ -428,7 +428,7 @@ export type UserIntegrationUpdateManyMutationInput = {
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   boardId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   boardName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projectIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   workspaceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   domain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -445,7 +445,7 @@ export type UserIntegrationUncheckedUpdateManyInput = {
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   boardId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   boardName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projectIId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   workspaceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   domain?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -467,7 +467,7 @@ export type UserIntegrationCountOrderByAggregateInput = {
   expiresAt?: Prisma.SortOrder
   boardId?: Prisma.SortOrder
   boardName?: Prisma.SortOrder
-  projectIId?: Prisma.SortOrder
+  projectId?: Prisma.SortOrder
   projectName?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
   domain?: Prisma.SortOrder
@@ -484,7 +484,7 @@ export type UserIntegrationMaxOrderByAggregateInput = {
   expiresAt?: Prisma.SortOrder
   boardId?: Prisma.SortOrder
   boardName?: Prisma.SortOrder
-  projectIId?: Prisma.SortOrder
+  projectId?: Prisma.SortOrder
   projectName?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
   domain?: Prisma.SortOrder
@@ -501,7 +501,7 @@ export type UserIntegrationMinOrderByAggregateInput = {
   expiresAt?: Prisma.SortOrder
   boardId?: Prisma.SortOrder
   boardName?: Prisma.SortOrder
-  projectIId?: Prisma.SortOrder
+  projectId?: Prisma.SortOrder
   projectName?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
   domain?: Prisma.SortOrder
@@ -520,7 +520,7 @@ export type UserIntegrationSelect<ExtArgs extends runtime.Types.Extensions.Inter
   expiresAt?: boolean
   boardId?: boolean
   boardName?: boolean
-  projectIId?: boolean
+  projectId?: boolean
   projectName?: boolean
   workspaceId?: boolean
   domain?: boolean
@@ -537,7 +537,7 @@ export type UserIntegrationSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   expiresAt?: boolean
   boardId?: boolean
   boardName?: boolean
-  projectIId?: boolean
+  projectId?: boolean
   projectName?: boolean
   workspaceId?: boolean
   domain?: boolean
@@ -554,7 +554,7 @@ export type UserIntegrationSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   expiresAt?: boolean
   boardId?: boolean
   boardName?: boolean
-  projectIId?: boolean
+  projectId?: boolean
   projectName?: boolean
   workspaceId?: boolean
   domain?: boolean
@@ -571,7 +571,7 @@ export type UserIntegrationSelectScalar = {
   expiresAt?: boolean
   boardId?: boolean
   boardName?: boolean
-  projectIId?: boolean
+  projectId?: boolean
   projectName?: boolean
   workspaceId?: boolean
   domain?: boolean
@@ -579,7 +579,7 @@ export type UserIntegrationSelectScalar = {
   updatedAt?: boolean
 }
 
-export type UserIntegrationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "platform" | "accessToken" | "refreshToken" | "expiresAt" | "boardId" | "boardName" | "projectIId" | "projectName" | "workspaceId" | "domain" | "createdAt" | "updatedAt", ExtArgs["result"]["userIntegration"]>
+export type UserIntegrationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "platform" | "accessToken" | "refreshToken" | "expiresAt" | "boardId" | "boardName" | "projectId" | "projectName" | "workspaceId" | "domain" | "createdAt" | "updatedAt", ExtArgs["result"]["userIntegration"]>
 
 export type $UserIntegrationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "UserIntegration"
@@ -593,7 +593,7 @@ export type $UserIntegrationPayload<ExtArgs extends runtime.Types.Extensions.Int
     expiresAt: Date | null
     boardId: string | null
     boardName: string | null
-    projectIId: string | null
+    projectId: string | null
     projectName: string | null
     workspaceId: string | null
     domain: string | null
@@ -1030,7 +1030,7 @@ export interface UserIntegrationFieldRefs {
   readonly expiresAt: Prisma.FieldRef<"UserIntegration", 'DateTime'>
   readonly boardId: Prisma.FieldRef<"UserIntegration", 'String'>
   readonly boardName: Prisma.FieldRef<"UserIntegration", 'String'>
-  readonly projectIId: Prisma.FieldRef<"UserIntegration", 'String'>
+  readonly projectId: Prisma.FieldRef<"UserIntegration", 'String'>
   readonly projectName: Prisma.FieldRef<"UserIntegration", 'String'>
   readonly workspaceId: Prisma.FieldRef<"UserIntegration", 'String'>
   readonly domain: Prisma.FieldRef<"UserIntegration", 'String'>

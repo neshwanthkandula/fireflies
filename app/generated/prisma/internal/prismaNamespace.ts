@@ -825,14 +825,21 @@ export const UserScalarFieldEnum = {
   botName: 'botName',
   botImageUrl: 'botImageUrl',
   googleAccessToken: 'googleAccessToken',
-  googleRefresshToken: 'googleRefresshToken',
+  googleRefreshToken: 'googleRefreshToken',
   googleTokenExpiry: 'googleTokenExpiry',
-  calenderConnected: 'calenderConnected',
+  calendarConnected: 'calendarConnected',
   slackUserId: 'slackUserId',
-  SlackTeamId: 'SlackTeamId',
-  SlackConnected: 'SlackConnected',
+  slackTeamId: 'slackTeamId',
+  slackConnected: 'slackConnected',
   preferredChannelId: 'preferredChannelId',
-  preferredchannelName: 'preferredchannelName',
+  preferredChannelName: 'preferredChannelName',
+  currentPlan: 'currentPlan',
+  subscriptionStatus: 'subscriptionStatus',
+  stripeCustomerId: 'stripeCustomerId',
+  stripeSubscriptionId: 'stripeSubscriptionId',
+  billingPeriodStart: 'billingPeriodStart',
+  meetingsThisMonth: 'meetingsThisMonth',
+  chatMessagesToday: 'chatMessagesToday',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -843,7 +850,7 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 export const SlackInstallationScalarFieldEnum = {
   id: 'id',
   teamId: 'teamId',
-  teanName: 'teanName',
+  teamName: 'teamName',
   botToken: 'botToken',
   installedBy: 'installedBy',
   installerName: 'installerName',
@@ -864,24 +871,24 @@ export const MeetingScalarFieldEnum = {
   startTime: 'startTime',
   endTime: 'endTime',
   attendees: 'attendees',
-  calenderEventId: 'calenderEventId',
-  isFormCalender: 'isFormCalender',
+  calendarEventId: 'calendarEventId',
+  isFromCalendar: 'isFromCalendar',
   botScheduled: 'botScheduled',
   botSent: 'botSent',
   botId: 'botId',
   botJoinedAt: 'botJoinedAt',
   meetingEnded: 'meetingEnded',
-  transcriptReddy: 'transcriptReddy',
+  transcriptReady: 'transcriptReady',
   transcript: 'transcript',
   recordingUrl: 'recordingUrl',
   speakers: 'speakers',
   summary: 'summary',
   actionItems: 'actionItems',
-  processes: 'processes',
+  processed: 'processed',
   processedAt: 'processedAt',
   emailSent: 'emailSent',
   emailSentAt: 'emailSentAt',
-  ragprocessed: 'ragprocessed',
+  ragProcessed: 'ragProcessed',
   ragProcessedAt: 'ragProcessedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -899,7 +906,7 @@ export const UserIntegrationScalarFieldEnum = {
   expiresAt: 'expiresAt',
   boardId: 'boardId',
   boardName: 'boardName',
-  projectIId: 'projectIId',
+  projectId: 'projectId',
   projectName: 'projectName',
   workspaceId: 'workspaceId',
   domain: 'domain',
@@ -1006,20 +1013,6 @@ export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel,
 
 
 /**
- * Reference to a field of type 'Json'
- */
-export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-/**
- * Reference to a field of type 'QueryMode'
- */
-export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
-    
-
-
-/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -1030,6 +1023,20 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Json'
+ */
+export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+/**
+ * Reference to a field of type 'QueryMode'
+ */
+export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
