@@ -12,11 +12,11 @@ export async function GET(request : NextRequest){
 
         const googleAuthUrl = new URL ('https://accounts.google.com/o/oauth2/v2/auth')
         googleAuthUrl.searchParams.set('client_id', process.env.GOOGLE_CLIENT_ID!)
-        googleAuthUrl.searchParams.set('client_id', process.env.GOOGLE_REDIRECT_URI!)
-        googleAuthUrl.searchParams.set('scope', 'http://www.googleapis.com/auth/calendar.readonly')
+        googleAuthUrl.searchParams.set('redirect_uri', process.env.GOOGLE_REDIRECT_URI!)
+        googleAuthUrl.searchParams.set('scope', 'https://www.googleapis.com/auth/calendar.readonly')
         googleAuthUrl.searchParams.set('response_type', 'code')
         googleAuthUrl.searchParams.set('access_type', 'offline')
-        googleAuthUrl.searchParams.set('prompt', 'content')
+        googleAuthUrl.searchParams.set('prompt', 'consent')
          googleAuthUrl.searchParams.set('state', state)
 
         return NextResponse.redirect(googleAuthUrl.toString())
