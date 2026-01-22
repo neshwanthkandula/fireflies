@@ -20,8 +20,20 @@ export type UserModel = runtime.Types.Result.DefaultSelection<Prisma.$UserPayloa
 
 export type AggregateUser = {
   _count: UserCountAggregateOutputType | null
+  _avg: UserAvgAggregateOutputType | null
+  _sum: UserSumAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
+}
+
+export type UserAvgAggregateOutputType = {
+  meetingsThisMonth: number | null
+  chatMessagesToday: number | null
+}
+
+export type UserSumAggregateOutputType = {
+  meetingsThisMonth: number | null
+  chatMessagesToday: number | null
 }
 
 export type UserMinAggregateOutputType = {
@@ -32,14 +44,21 @@ export type UserMinAggregateOutputType = {
   botName: string | null
   botImageUrl: string | null
   googleAccessToken: string | null
-  googleRefresshToken: string | null
+  googleRefreshToken: string | null
   googleTokenExpiry: Date | null
-  calenderConnected: boolean | null
+  calendarConnected: boolean | null
   slackUserId: string | null
-  SlackTeamId: string | null
-  SlackConnected: boolean | null
+  slackTeamId: string | null
+  slackConnected: boolean | null
   preferredChannelId: string | null
-  preferredchannelName: string | null
+  preferredChannelName: string | null
+  currentPlan: string | null
+  subscriptionStatus: string | null
+  stripeCustomerId: string | null
+  stripeSubscriptionId: string | null
+  billingPeriodStart: Date | null
+  meetingsThisMonth: number | null
+  chatMessagesToday: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -52,14 +71,21 @@ export type UserMaxAggregateOutputType = {
   botName: string | null
   botImageUrl: string | null
   googleAccessToken: string | null
-  googleRefresshToken: string | null
+  googleRefreshToken: string | null
   googleTokenExpiry: Date | null
-  calenderConnected: boolean | null
+  calendarConnected: boolean | null
   slackUserId: string | null
-  SlackTeamId: string | null
-  SlackConnected: boolean | null
+  slackTeamId: string | null
+  slackConnected: boolean | null
   preferredChannelId: string | null
-  preferredchannelName: string | null
+  preferredChannelName: string | null
+  currentPlan: string | null
+  subscriptionStatus: string | null
+  stripeCustomerId: string | null
+  stripeSubscriptionId: string | null
+  billingPeriodStart: Date | null
+  meetingsThisMonth: number | null
+  chatMessagesToday: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -72,19 +98,36 @@ export type UserCountAggregateOutputType = {
   botName: number
   botImageUrl: number
   googleAccessToken: number
-  googleRefresshToken: number
+  googleRefreshToken: number
   googleTokenExpiry: number
-  calenderConnected: number
+  calendarConnected: number
   slackUserId: number
-  SlackTeamId: number
-  SlackConnected: number
+  slackTeamId: number
+  slackConnected: number
   preferredChannelId: number
-  preferredchannelName: number
+  preferredChannelName: number
+  currentPlan: number
+  subscriptionStatus: number
+  stripeCustomerId: number
+  stripeSubscriptionId: number
+  billingPeriodStart: number
+  meetingsThisMonth: number
+  chatMessagesToday: number
   createdAt: number
   updatedAt: number
   _all: number
 }
 
+
+export type UserAvgAggregateInputType = {
+  meetingsThisMonth?: true
+  chatMessagesToday?: true
+}
+
+export type UserSumAggregateInputType = {
+  meetingsThisMonth?: true
+  chatMessagesToday?: true
+}
 
 export type UserMinAggregateInputType = {
   id?: true
@@ -94,14 +137,21 @@ export type UserMinAggregateInputType = {
   botName?: true
   botImageUrl?: true
   googleAccessToken?: true
-  googleRefresshToken?: true
+  googleRefreshToken?: true
   googleTokenExpiry?: true
-  calenderConnected?: true
+  calendarConnected?: true
   slackUserId?: true
-  SlackTeamId?: true
-  SlackConnected?: true
+  slackTeamId?: true
+  slackConnected?: true
   preferredChannelId?: true
-  preferredchannelName?: true
+  preferredChannelName?: true
+  currentPlan?: true
+  subscriptionStatus?: true
+  stripeCustomerId?: true
+  stripeSubscriptionId?: true
+  billingPeriodStart?: true
+  meetingsThisMonth?: true
+  chatMessagesToday?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -114,14 +164,21 @@ export type UserMaxAggregateInputType = {
   botName?: true
   botImageUrl?: true
   googleAccessToken?: true
-  googleRefresshToken?: true
+  googleRefreshToken?: true
   googleTokenExpiry?: true
-  calenderConnected?: true
+  calendarConnected?: true
   slackUserId?: true
-  SlackTeamId?: true
-  SlackConnected?: true
+  slackTeamId?: true
+  slackConnected?: true
   preferredChannelId?: true
-  preferredchannelName?: true
+  preferredChannelName?: true
+  currentPlan?: true
+  subscriptionStatus?: true
+  stripeCustomerId?: true
+  stripeSubscriptionId?: true
+  billingPeriodStart?: true
+  meetingsThisMonth?: true
+  chatMessagesToday?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -134,14 +191,21 @@ export type UserCountAggregateInputType = {
   botName?: true
   botImageUrl?: true
   googleAccessToken?: true
-  googleRefresshToken?: true
+  googleRefreshToken?: true
   googleTokenExpiry?: true
-  calenderConnected?: true
+  calendarConnected?: true
   slackUserId?: true
-  SlackTeamId?: true
-  SlackConnected?: true
+  slackTeamId?: true
+  slackConnected?: true
   preferredChannelId?: true
-  preferredchannelName?: true
+  preferredChannelName?: true
+  currentPlan?: true
+  subscriptionStatus?: true
+  stripeCustomerId?: true
+  stripeSubscriptionId?: true
+  billingPeriodStart?: true
+  meetingsThisMonth?: true
+  chatMessagesToday?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -185,6 +249,18 @@ export type UserAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: UserAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: UserSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: UserMinAggregateInputType
@@ -215,6 +291,8 @@ export type UserGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
   take?: number
   skip?: number
   _count?: UserCountAggregateInputType | true
+  _avg?: UserAvgAggregateInputType
+  _sum?: UserSumAggregateInputType
   _min?: UserMinAggregateInputType
   _max?: UserMaxAggregateInputType
 }
@@ -222,22 +300,31 @@ export type UserGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type UserGroupByOutputType = {
   id: string
   clerkId: string
-  email: string
-  name: string
+  email: string | null
+  name: string | null
   botName: string | null
   botImageUrl: string | null
   googleAccessToken: string | null
-  googleRefresshToken: string | null
+  googleRefreshToken: string | null
   googleTokenExpiry: Date | null
-  calenderConnected: boolean
+  calendarConnected: boolean
   slackUserId: string | null
-  SlackTeamId: string | null
-  SlackConnected: boolean
+  slackTeamId: string | null
+  slackConnected: boolean
   preferredChannelId: string | null
-  preferredchannelName: string | null
+  preferredChannelName: string | null
+  currentPlan: string
+  subscriptionStatus: string
+  stripeCustomerId: string | null
+  stripeSubscriptionId: string | null
+  billingPeriodStart: Date | null
+  meetingsThisMonth: number
+  chatMessagesToday: number
   createdAt: Date
   updatedAt: Date
   _count: UserCountAggregateOutputType | null
+  _avg: UserAvgAggregateOutputType | null
+  _sum: UserSumAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
 }
@@ -263,19 +350,26 @@ export type UserWhereInput = {
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   id?: Prisma.StringFilter<"User"> | string
   clerkId?: Prisma.StringFilter<"User"> | string
-  email?: Prisma.StringFilter<"User"> | string
-  name?: Prisma.StringFilter<"User"> | string
+  email?: Prisma.StringNullableFilter<"User"> | string | null
+  name?: Prisma.StringNullableFilter<"User"> | string | null
   botName?: Prisma.StringNullableFilter<"User"> | string | null
   botImageUrl?: Prisma.StringNullableFilter<"User"> | string | null
   googleAccessToken?: Prisma.StringNullableFilter<"User"> | string | null
-  googleRefresshToken?: Prisma.StringNullableFilter<"User"> | string | null
+  googleRefreshToken?: Prisma.StringNullableFilter<"User"> | string | null
   googleTokenExpiry?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
-  calenderConnected?: Prisma.BoolFilter<"User"> | boolean
+  calendarConnected?: Prisma.BoolFilter<"User"> | boolean
   slackUserId?: Prisma.StringNullableFilter<"User"> | string | null
-  SlackTeamId?: Prisma.StringNullableFilter<"User"> | string | null
-  SlackConnected?: Prisma.BoolFilter<"User"> | boolean
+  slackTeamId?: Prisma.StringNullableFilter<"User"> | string | null
+  slackConnected?: Prisma.BoolFilter<"User"> | boolean
   preferredChannelId?: Prisma.StringNullableFilter<"User"> | string | null
-  preferredchannelName?: Prisma.StringNullableFilter<"User"> | string | null
+  preferredChannelName?: Prisma.StringNullableFilter<"User"> | string | null
+  currentPlan?: Prisma.StringFilter<"User"> | string
+  subscriptionStatus?: Prisma.StringFilter<"User"> | string
+  stripeCustomerId?: Prisma.StringNullableFilter<"User"> | string | null
+  stripeSubscriptionId?: Prisma.StringNullableFilter<"User"> | string | null
+  billingPeriodStart?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
+  meetingsThisMonth?: Prisma.IntFilter<"User"> | number
+  chatMessagesToday?: Prisma.IntFilter<"User"> | number
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   meetings?: Prisma.MeetingListRelationFilter
@@ -284,19 +378,26 @@ export type UserWhereInput = {
 export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   clerkId?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  email?: Prisma.SortOrderInput | Prisma.SortOrder
+  name?: Prisma.SortOrderInput | Prisma.SortOrder
   botName?: Prisma.SortOrderInput | Prisma.SortOrder
   botImageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   googleAccessToken?: Prisma.SortOrderInput | Prisma.SortOrder
-  googleRefresshToken?: Prisma.SortOrderInput | Prisma.SortOrder
+  googleRefreshToken?: Prisma.SortOrderInput | Prisma.SortOrder
   googleTokenExpiry?: Prisma.SortOrderInput | Prisma.SortOrder
-  calenderConnected?: Prisma.SortOrder
+  calendarConnected?: Prisma.SortOrder
   slackUserId?: Prisma.SortOrderInput | Prisma.SortOrder
-  SlackTeamId?: Prisma.SortOrderInput | Prisma.SortOrder
-  SlackConnected?: Prisma.SortOrder
+  slackTeamId?: Prisma.SortOrderInput | Prisma.SortOrder
+  slackConnected?: Prisma.SortOrder
   preferredChannelId?: Prisma.SortOrderInput | Prisma.SortOrder
-  preferredchannelName?: Prisma.SortOrderInput | Prisma.SortOrder
+  preferredChannelName?: Prisma.SortOrderInput | Prisma.SortOrder
+  currentPlan?: Prisma.SortOrder
+  subscriptionStatus?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrderInput | Prisma.SortOrder
+  stripeSubscriptionId?: Prisma.SortOrderInput | Prisma.SortOrder
+  billingPeriodStart?: Prisma.SortOrderInput | Prisma.SortOrder
+  meetingsThisMonth?: Prisma.SortOrder
+  chatMessagesToday?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   meetings?: Prisma.MeetingOrderByRelationAggregateInput
@@ -308,19 +409,26 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
-  email?: Prisma.StringFilter<"User"> | string
-  name?: Prisma.StringFilter<"User"> | string
+  email?: Prisma.StringNullableFilter<"User"> | string | null
+  name?: Prisma.StringNullableFilter<"User"> | string | null
   botName?: Prisma.StringNullableFilter<"User"> | string | null
   botImageUrl?: Prisma.StringNullableFilter<"User"> | string | null
   googleAccessToken?: Prisma.StringNullableFilter<"User"> | string | null
-  googleRefresshToken?: Prisma.StringNullableFilter<"User"> | string | null
+  googleRefreshToken?: Prisma.StringNullableFilter<"User"> | string | null
   googleTokenExpiry?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
-  calenderConnected?: Prisma.BoolFilter<"User"> | boolean
+  calendarConnected?: Prisma.BoolFilter<"User"> | boolean
   slackUserId?: Prisma.StringNullableFilter<"User"> | string | null
-  SlackTeamId?: Prisma.StringNullableFilter<"User"> | string | null
-  SlackConnected?: Prisma.BoolFilter<"User"> | boolean
+  slackTeamId?: Prisma.StringNullableFilter<"User"> | string | null
+  slackConnected?: Prisma.BoolFilter<"User"> | boolean
   preferredChannelId?: Prisma.StringNullableFilter<"User"> | string | null
-  preferredchannelName?: Prisma.StringNullableFilter<"User"> | string | null
+  preferredChannelName?: Prisma.StringNullableFilter<"User"> | string | null
+  currentPlan?: Prisma.StringFilter<"User"> | string
+  subscriptionStatus?: Prisma.StringFilter<"User"> | string
+  stripeCustomerId?: Prisma.StringNullableFilter<"User"> | string | null
+  stripeSubscriptionId?: Prisma.StringNullableFilter<"User"> | string | null
+  billingPeriodStart?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
+  meetingsThisMonth?: Prisma.IntFilter<"User"> | number
+  chatMessagesToday?: Prisma.IntFilter<"User"> | number
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   meetings?: Prisma.MeetingListRelationFilter
@@ -329,24 +437,33 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
 export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   clerkId?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  email?: Prisma.SortOrderInput | Prisma.SortOrder
+  name?: Prisma.SortOrderInput | Prisma.SortOrder
   botName?: Prisma.SortOrderInput | Prisma.SortOrder
   botImageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   googleAccessToken?: Prisma.SortOrderInput | Prisma.SortOrder
-  googleRefresshToken?: Prisma.SortOrderInput | Prisma.SortOrder
+  googleRefreshToken?: Prisma.SortOrderInput | Prisma.SortOrder
   googleTokenExpiry?: Prisma.SortOrderInput | Prisma.SortOrder
-  calenderConnected?: Prisma.SortOrder
+  calendarConnected?: Prisma.SortOrder
   slackUserId?: Prisma.SortOrderInput | Prisma.SortOrder
-  SlackTeamId?: Prisma.SortOrderInput | Prisma.SortOrder
-  SlackConnected?: Prisma.SortOrder
+  slackTeamId?: Prisma.SortOrderInput | Prisma.SortOrder
+  slackConnected?: Prisma.SortOrder
   preferredChannelId?: Prisma.SortOrderInput | Prisma.SortOrder
-  preferredchannelName?: Prisma.SortOrderInput | Prisma.SortOrder
+  preferredChannelName?: Prisma.SortOrderInput | Prisma.SortOrder
+  currentPlan?: Prisma.SortOrder
+  subscriptionStatus?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrderInput | Prisma.SortOrder
+  stripeSubscriptionId?: Prisma.SortOrderInput | Prisma.SortOrder
+  billingPeriodStart?: Prisma.SortOrderInput | Prisma.SortOrder
+  meetingsThisMonth?: Prisma.SortOrder
+  chatMessagesToday?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
+  _avg?: Prisma.UserAvgOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
   _min?: Prisma.UserMinOrderByAggregateInput
+  _sum?: Prisma.UserSumOrderByAggregateInput
 }
 
 export type UserScalarWhereWithAggregatesInput = {
@@ -355,19 +472,26 @@ export type UserScalarWhereWithAggregatesInput = {
   NOT?: Prisma.UserScalarWhereWithAggregatesInput | Prisma.UserScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"User"> | string
   clerkId?: Prisma.StringWithAggregatesFilter<"User"> | string
-  email?: Prisma.StringWithAggregatesFilter<"User"> | string
-  name?: Prisma.StringWithAggregatesFilter<"User"> | string
+  email?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  name?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   botName?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   botImageUrl?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   googleAccessToken?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  googleRefresshToken?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  googleRefreshToken?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   googleTokenExpiry?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
-  calenderConnected?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
+  calendarConnected?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   slackUserId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  SlackTeamId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  SlackConnected?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
+  slackTeamId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  slackConnected?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   preferredChannelId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
-  preferredchannelName?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  preferredChannelName?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  currentPlan?: Prisma.StringWithAggregatesFilter<"User"> | string
+  subscriptionStatus?: Prisma.StringWithAggregatesFilter<"User"> | string
+  stripeCustomerId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  stripeSubscriptionId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  billingPeriodStart?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+  meetingsThisMonth?: Prisma.IntWithAggregatesFilter<"User"> | number
+  chatMessagesToday?: Prisma.IntWithAggregatesFilter<"User"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
@@ -375,19 +499,26 @@ export type UserScalarWhereWithAggregatesInput = {
 export type UserCreateInput = {
   id: string
   clerkId: string
-  email: string
-  name: string
+  email?: string | null
+  name?: string | null
   botName?: string | null
   botImageUrl?: string | null
   googleAccessToken?: string | null
-  googleRefresshToken?: string | null
+  googleRefreshToken?: string | null
   googleTokenExpiry?: Date | string | null
-  calenderConnected?: boolean
+  calendarConnected?: boolean
   slackUserId?: string | null
-  SlackTeamId?: string | null
-  SlackConnected?: boolean
+  slackTeamId?: string | null
+  slackConnected?: boolean
   preferredChannelId?: string | null
-  preferredchannelName?: string | null
+  preferredChannelName?: string | null
+  currentPlan?: string
+  subscriptionStatus?: string
+  stripeCustomerId?: string | null
+  stripeSubscriptionId?: string | null
+  billingPeriodStart?: Date | string | null
+  meetingsThisMonth?: number
+  chatMessagesToday?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   meetings?: Prisma.MeetingCreateNestedManyWithoutUserInput
@@ -396,19 +527,26 @@ export type UserCreateInput = {
 export type UserUncheckedCreateInput = {
   id: string
   clerkId: string
-  email: string
-  name: string
+  email?: string | null
+  name?: string | null
   botName?: string | null
   botImageUrl?: string | null
   googleAccessToken?: string | null
-  googleRefresshToken?: string | null
+  googleRefreshToken?: string | null
   googleTokenExpiry?: Date | string | null
-  calenderConnected?: boolean
+  calendarConnected?: boolean
   slackUserId?: string | null
-  SlackTeamId?: string | null
-  SlackConnected?: boolean
+  slackTeamId?: string | null
+  slackConnected?: boolean
   preferredChannelId?: string | null
-  preferredchannelName?: string | null
+  preferredChannelName?: string | null
+  currentPlan?: string
+  subscriptionStatus?: string
+  stripeCustomerId?: string | null
+  stripeSubscriptionId?: string | null
+  billingPeriodStart?: Date | string | null
+  meetingsThisMonth?: number
+  chatMessagesToday?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   meetings?: Prisma.MeetingUncheckedCreateNestedManyWithoutUserInput
@@ -417,19 +555,26 @@ export type UserUncheckedCreateInput = {
 export type UserUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   clerkId?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleAccessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  googleRefresshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleRefreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleTokenExpiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  calenderConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   slackUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SlackTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SlackConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slackTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  slackConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   preferredChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  preferredchannelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferredChannelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentPlan?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingPeriodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  meetingsThisMonth?: Prisma.IntFieldUpdateOperationsInput | number
+  chatMessagesToday?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   meetings?: Prisma.MeetingUpdateManyWithoutUserNestedInput
@@ -438,19 +583,26 @@ export type UserUpdateInput = {
 export type UserUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   clerkId?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleAccessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  googleRefresshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleRefreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleTokenExpiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  calenderConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   slackUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SlackTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SlackConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slackTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  slackConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   preferredChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  preferredchannelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferredChannelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentPlan?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingPeriodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  meetingsThisMonth?: Prisma.IntFieldUpdateOperationsInput | number
+  chatMessagesToday?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   meetings?: Prisma.MeetingUncheckedUpdateManyWithoutUserNestedInput
@@ -459,19 +611,26 @@ export type UserUncheckedUpdateInput = {
 export type UserCreateManyInput = {
   id: string
   clerkId: string
-  email: string
-  name: string
+  email?: string | null
+  name?: string | null
   botName?: string | null
   botImageUrl?: string | null
   googleAccessToken?: string | null
-  googleRefresshToken?: string | null
+  googleRefreshToken?: string | null
   googleTokenExpiry?: Date | string | null
-  calenderConnected?: boolean
+  calendarConnected?: boolean
   slackUserId?: string | null
-  SlackTeamId?: string | null
-  SlackConnected?: boolean
+  slackTeamId?: string | null
+  slackConnected?: boolean
   preferredChannelId?: string | null
-  preferredchannelName?: string | null
+  preferredChannelName?: string | null
+  currentPlan?: string
+  subscriptionStatus?: string
+  stripeCustomerId?: string | null
+  stripeSubscriptionId?: string | null
+  billingPeriodStart?: Date | string | null
+  meetingsThisMonth?: number
+  chatMessagesToday?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -479,19 +638,26 @@ export type UserCreateManyInput = {
 export type UserUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   clerkId?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleAccessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  googleRefresshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleRefreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleTokenExpiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  calenderConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   slackUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SlackTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SlackConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slackTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  slackConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   preferredChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  preferredchannelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferredChannelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentPlan?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingPeriodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  meetingsThisMonth?: Prisma.IntFieldUpdateOperationsInput | number
+  chatMessagesToday?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -499,19 +665,26 @@ export type UserUpdateManyMutationInput = {
 export type UserUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   clerkId?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleAccessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  googleRefresshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleRefreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleTokenExpiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  calenderConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   slackUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SlackTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SlackConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slackTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  slackConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   preferredChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  preferredchannelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferredChannelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentPlan?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingPeriodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  meetingsThisMonth?: Prisma.IntFieldUpdateOperationsInput | number
+  chatMessagesToday?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -524,16 +697,28 @@ export type UserCountOrderByAggregateInput = {
   botName?: Prisma.SortOrder
   botImageUrl?: Prisma.SortOrder
   googleAccessToken?: Prisma.SortOrder
-  googleRefresshToken?: Prisma.SortOrder
+  googleRefreshToken?: Prisma.SortOrder
   googleTokenExpiry?: Prisma.SortOrder
-  calenderConnected?: Prisma.SortOrder
+  calendarConnected?: Prisma.SortOrder
   slackUserId?: Prisma.SortOrder
-  SlackTeamId?: Prisma.SortOrder
-  SlackConnected?: Prisma.SortOrder
+  slackTeamId?: Prisma.SortOrder
+  slackConnected?: Prisma.SortOrder
   preferredChannelId?: Prisma.SortOrder
-  preferredchannelName?: Prisma.SortOrder
+  preferredChannelName?: Prisma.SortOrder
+  currentPlan?: Prisma.SortOrder
+  subscriptionStatus?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrder
+  stripeSubscriptionId?: Prisma.SortOrder
+  billingPeriodStart?: Prisma.SortOrder
+  meetingsThisMonth?: Prisma.SortOrder
+  chatMessagesToday?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type UserAvgOrderByAggregateInput = {
+  meetingsThisMonth?: Prisma.SortOrder
+  chatMessagesToday?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
@@ -544,14 +729,21 @@ export type UserMaxOrderByAggregateInput = {
   botName?: Prisma.SortOrder
   botImageUrl?: Prisma.SortOrder
   googleAccessToken?: Prisma.SortOrder
-  googleRefresshToken?: Prisma.SortOrder
+  googleRefreshToken?: Prisma.SortOrder
   googleTokenExpiry?: Prisma.SortOrder
-  calenderConnected?: Prisma.SortOrder
+  calendarConnected?: Prisma.SortOrder
   slackUserId?: Prisma.SortOrder
-  SlackTeamId?: Prisma.SortOrder
-  SlackConnected?: Prisma.SortOrder
+  slackTeamId?: Prisma.SortOrder
+  slackConnected?: Prisma.SortOrder
   preferredChannelId?: Prisma.SortOrder
-  preferredchannelName?: Prisma.SortOrder
+  preferredChannelName?: Prisma.SortOrder
+  currentPlan?: Prisma.SortOrder
+  subscriptionStatus?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrder
+  stripeSubscriptionId?: Prisma.SortOrder
+  billingPeriodStart?: Prisma.SortOrder
+  meetingsThisMonth?: Prisma.SortOrder
+  chatMessagesToday?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -564,16 +756,28 @@ export type UserMinOrderByAggregateInput = {
   botName?: Prisma.SortOrder
   botImageUrl?: Prisma.SortOrder
   googleAccessToken?: Prisma.SortOrder
-  googleRefresshToken?: Prisma.SortOrder
+  googleRefreshToken?: Prisma.SortOrder
   googleTokenExpiry?: Prisma.SortOrder
-  calenderConnected?: Prisma.SortOrder
+  calendarConnected?: Prisma.SortOrder
   slackUserId?: Prisma.SortOrder
-  SlackTeamId?: Prisma.SortOrder
-  SlackConnected?: Prisma.SortOrder
+  slackTeamId?: Prisma.SortOrder
+  slackConnected?: Prisma.SortOrder
   preferredChannelId?: Prisma.SortOrder
-  preferredchannelName?: Prisma.SortOrder
+  preferredChannelName?: Prisma.SortOrder
+  currentPlan?: Prisma.SortOrder
+  subscriptionStatus?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrder
+  stripeSubscriptionId?: Prisma.SortOrder
+  billingPeriodStart?: Prisma.SortOrder
+  meetingsThisMonth?: Prisma.SortOrder
+  chatMessagesToday?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type UserSumOrderByAggregateInput = {
+  meetingsThisMonth?: Prisma.SortOrder
+  chatMessagesToday?: Prisma.SortOrder
 }
 
 export type UserScalarRelationFilter = {
@@ -597,6 +801,14 @@ export type BoolFieldUpdateOperationsInput = {
   set?: boolean
 }
 
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
@@ -618,19 +830,26 @@ export type UserUpdateOneRequiredWithoutMeetingsNestedInput = {
 export type UserCreateWithoutMeetingsInput = {
   id: string
   clerkId: string
-  email: string
-  name: string
+  email?: string | null
+  name?: string | null
   botName?: string | null
   botImageUrl?: string | null
   googleAccessToken?: string | null
-  googleRefresshToken?: string | null
+  googleRefreshToken?: string | null
   googleTokenExpiry?: Date | string | null
-  calenderConnected?: boolean
+  calendarConnected?: boolean
   slackUserId?: string | null
-  SlackTeamId?: string | null
-  SlackConnected?: boolean
+  slackTeamId?: string | null
+  slackConnected?: boolean
   preferredChannelId?: string | null
-  preferredchannelName?: string | null
+  preferredChannelName?: string | null
+  currentPlan?: string
+  subscriptionStatus?: string
+  stripeCustomerId?: string | null
+  stripeSubscriptionId?: string | null
+  billingPeriodStart?: Date | string | null
+  meetingsThisMonth?: number
+  chatMessagesToday?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -638,19 +857,26 @@ export type UserCreateWithoutMeetingsInput = {
 export type UserUncheckedCreateWithoutMeetingsInput = {
   id: string
   clerkId: string
-  email: string
-  name: string
+  email?: string | null
+  name?: string | null
   botName?: string | null
   botImageUrl?: string | null
   googleAccessToken?: string | null
-  googleRefresshToken?: string | null
+  googleRefreshToken?: string | null
   googleTokenExpiry?: Date | string | null
-  calenderConnected?: boolean
+  calendarConnected?: boolean
   slackUserId?: string | null
-  SlackTeamId?: string | null
-  SlackConnected?: boolean
+  slackTeamId?: string | null
+  slackConnected?: boolean
   preferredChannelId?: string | null
-  preferredchannelName?: string | null
+  preferredChannelName?: string | null
+  currentPlan?: string
+  subscriptionStatus?: string
+  stripeCustomerId?: string | null
+  stripeSubscriptionId?: string | null
+  billingPeriodStart?: Date | string | null
+  meetingsThisMonth?: number
+  chatMessagesToday?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -674,19 +900,26 @@ export type UserUpdateToOneWithWhereWithoutMeetingsInput = {
 export type UserUpdateWithoutMeetingsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   clerkId?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleAccessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  googleRefresshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleRefreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleTokenExpiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  calenderConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   slackUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SlackTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SlackConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slackTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  slackConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   preferredChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  preferredchannelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferredChannelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentPlan?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingPeriodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  meetingsThisMonth?: Prisma.IntFieldUpdateOperationsInput | number
+  chatMessagesToday?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -694,19 +927,26 @@ export type UserUpdateWithoutMeetingsInput = {
 export type UserUncheckedUpdateWithoutMeetingsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   clerkId?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleAccessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  googleRefresshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  googleRefreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   googleTokenExpiry?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  calenderConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   slackUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SlackTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SlackConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slackTeamId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  slackConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   preferredChannelId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  preferredchannelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferredChannelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currentPlan?: Prisma.StringFieldUpdateOperationsInput | string
+  subscriptionStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingPeriodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  meetingsThisMonth?: Prisma.IntFieldUpdateOperationsInput | number
+  chatMessagesToday?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -750,14 +990,21 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   botName?: boolean
   botImageUrl?: boolean
   googleAccessToken?: boolean
-  googleRefresshToken?: boolean
+  googleRefreshToken?: boolean
   googleTokenExpiry?: boolean
-  calenderConnected?: boolean
+  calendarConnected?: boolean
   slackUserId?: boolean
-  SlackTeamId?: boolean
-  SlackConnected?: boolean
+  slackTeamId?: boolean
+  slackConnected?: boolean
   preferredChannelId?: boolean
-  preferredchannelName?: boolean
+  preferredChannelName?: boolean
+  currentPlan?: boolean
+  subscriptionStatus?: boolean
+  stripeCustomerId?: boolean
+  stripeSubscriptionId?: boolean
+  billingPeriodStart?: boolean
+  meetingsThisMonth?: boolean
+  chatMessagesToday?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   meetings?: boolean | Prisma.User$meetingsArgs<ExtArgs>
@@ -772,14 +1019,21 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   botName?: boolean
   botImageUrl?: boolean
   googleAccessToken?: boolean
-  googleRefresshToken?: boolean
+  googleRefreshToken?: boolean
   googleTokenExpiry?: boolean
-  calenderConnected?: boolean
+  calendarConnected?: boolean
   slackUserId?: boolean
-  SlackTeamId?: boolean
-  SlackConnected?: boolean
+  slackTeamId?: boolean
+  slackConnected?: boolean
   preferredChannelId?: boolean
-  preferredchannelName?: boolean
+  preferredChannelName?: boolean
+  currentPlan?: boolean
+  subscriptionStatus?: boolean
+  stripeCustomerId?: boolean
+  stripeSubscriptionId?: boolean
+  billingPeriodStart?: boolean
+  meetingsThisMonth?: boolean
+  chatMessagesToday?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -792,14 +1046,21 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   botName?: boolean
   botImageUrl?: boolean
   googleAccessToken?: boolean
-  googleRefresshToken?: boolean
+  googleRefreshToken?: boolean
   googleTokenExpiry?: boolean
-  calenderConnected?: boolean
+  calendarConnected?: boolean
   slackUserId?: boolean
-  SlackTeamId?: boolean
-  SlackConnected?: boolean
+  slackTeamId?: boolean
+  slackConnected?: boolean
   preferredChannelId?: boolean
-  preferredchannelName?: boolean
+  preferredChannelName?: boolean
+  currentPlan?: boolean
+  subscriptionStatus?: boolean
+  stripeCustomerId?: boolean
+  stripeSubscriptionId?: boolean
+  billingPeriodStart?: boolean
+  meetingsThisMonth?: boolean
+  chatMessagesToday?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -812,19 +1073,26 @@ export type UserSelectScalar = {
   botName?: boolean
   botImageUrl?: boolean
   googleAccessToken?: boolean
-  googleRefresshToken?: boolean
+  googleRefreshToken?: boolean
   googleTokenExpiry?: boolean
-  calenderConnected?: boolean
+  calendarConnected?: boolean
   slackUserId?: boolean
-  SlackTeamId?: boolean
-  SlackConnected?: boolean
+  slackTeamId?: boolean
+  slackConnected?: boolean
   preferredChannelId?: boolean
-  preferredchannelName?: boolean
+  preferredChannelName?: boolean
+  currentPlan?: boolean
+  subscriptionStatus?: boolean
+  stripeCustomerId?: boolean
+  stripeSubscriptionId?: boolean
+  billingPeriodStart?: boolean
+  meetingsThisMonth?: boolean
+  chatMessagesToday?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "clerkId" | "email" | "name" | "botName" | "botImageUrl" | "googleAccessToken" | "googleRefresshToken" | "googleTokenExpiry" | "calenderConnected" | "slackUserId" | "SlackTeamId" | "SlackConnected" | "preferredChannelId" | "preferredchannelName" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "clerkId" | "email" | "name" | "botName" | "botImageUrl" | "googleAccessToken" | "googleRefreshToken" | "googleTokenExpiry" | "calendarConnected" | "slackUserId" | "slackTeamId" | "slackConnected" | "preferredChannelId" | "preferredChannelName" | "currentPlan" | "subscriptionStatus" | "stripeCustomerId" | "stripeSubscriptionId" | "billingPeriodStart" | "meetingsThisMonth" | "chatMessagesToday" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   meetings?: boolean | Prisma.User$meetingsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -840,19 +1108,26 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     clerkId: string
-    email: string
-    name: string
+    email: string | null
+    name: string | null
     botName: string | null
     botImageUrl: string | null
     googleAccessToken: string | null
-    googleRefresshToken: string | null
+    googleRefreshToken: string | null
     googleTokenExpiry: Date | null
-    calenderConnected: boolean
+    calendarConnected: boolean
     slackUserId: string | null
-    SlackTeamId: string | null
-    SlackConnected: boolean
+    slackTeamId: string | null
+    slackConnected: boolean
     preferredChannelId: string | null
-    preferredchannelName: string | null
+    preferredChannelName: string | null
+    currentPlan: string
+    subscriptionStatus: string
+    stripeCustomerId: string | null
+    stripeSubscriptionId: string | null
+    billingPeriodStart: Date | null
+    meetingsThisMonth: number
+    chatMessagesToday: number
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["user"]>
@@ -1286,14 +1561,21 @@ export interface UserFieldRefs {
   readonly botName: Prisma.FieldRef<"User", 'String'>
   readonly botImageUrl: Prisma.FieldRef<"User", 'String'>
   readonly googleAccessToken: Prisma.FieldRef<"User", 'String'>
-  readonly googleRefresshToken: Prisma.FieldRef<"User", 'String'>
+  readonly googleRefreshToken: Prisma.FieldRef<"User", 'String'>
   readonly googleTokenExpiry: Prisma.FieldRef<"User", 'DateTime'>
-  readonly calenderConnected: Prisma.FieldRef<"User", 'Boolean'>
+  readonly calendarConnected: Prisma.FieldRef<"User", 'Boolean'>
   readonly slackUserId: Prisma.FieldRef<"User", 'String'>
-  readonly SlackTeamId: Prisma.FieldRef<"User", 'String'>
-  readonly SlackConnected: Prisma.FieldRef<"User", 'Boolean'>
+  readonly slackTeamId: Prisma.FieldRef<"User", 'String'>
+  readonly slackConnected: Prisma.FieldRef<"User", 'Boolean'>
   readonly preferredChannelId: Prisma.FieldRef<"User", 'String'>
-  readonly preferredchannelName: Prisma.FieldRef<"User", 'String'>
+  readonly preferredChannelName: Prisma.FieldRef<"User", 'String'>
+  readonly currentPlan: Prisma.FieldRef<"User", 'String'>
+  readonly subscriptionStatus: Prisma.FieldRef<"User", 'String'>
+  readonly stripeCustomerId: Prisma.FieldRef<"User", 'String'>
+  readonly stripeSubscriptionId: Prisma.FieldRef<"User", 'String'>
+  readonly billingPeriodStart: Prisma.FieldRef<"User", 'DateTime'>
+  readonly meetingsThisMonth: Prisma.FieldRef<"User", 'Int'>
+  readonly chatMessagesToday: Prisma.FieldRef<"User", 'Int'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
 }

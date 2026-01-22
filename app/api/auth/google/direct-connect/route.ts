@@ -1,0 +1,27 @@
+import { auth } from "@clerk/nextjs/server";
+import { NextRequest, NextResponse } from "next/server";
+
+export async function GET(request : NextRequest){
+    try {
+        const { userId } = await auth()
+        if(!userId){
+            return NextResponse.redirect('/sign-in')
+        }
+
+        const state = Buffer.from(JSON.stringify({userId})).toString('base64')
+
+        const googleAuthUrl = new URL ('https://accounts.google.com/o/oauth2/v2/auth')
+        googleAuthUrl.searchParams.set('client_id', process.env.GOOGLE_CLIENT_ID!)
+        googleAuthUrl.searchParams.set('client_id', process.env.GOOGLE_REDIRECT_URI!)
+        googleAuthUrl.searchParams.set('scope', 'http://www.googleapis.com/auth/calendar.readonly')
+        googleAuthUrl.searchParams.set('response_type', 'code')
+        googleAuthUrl.searchParams.set('access_type', 'offline')
+        googleAuthUrl.searchParams.set('prompt', 'content')
+         googleAuthUrl.searchParams.set('state', state)
+
+        return NextResponse.redirect(googleAuthUrl.toString())
+    }catch(err){
+        console.log('Direct OAth error: ' , err)
+        return NextResponse.json({error : "failed to setup OAuth"}, {status : 500})
+    }
+}

@@ -32,21 +32,21 @@ export type MeetingMinAggregateOutputType = {
   meetingUrl: string | null
   startTime: Date | null
   endTime: Date | null
-  calenderEventId: string | null
-  isFormCalender: boolean | null
+  calendarEventId: string | null
+  isFromCalendar: boolean | null
   botScheduled: boolean | null
   botSent: boolean | null
   botId: string | null
   botJoinedAt: Date | null
   meetingEnded: boolean | null
-  transcriptReddy: boolean | null
+  transcriptReady: boolean | null
   recordingUrl: string | null
   summary: string | null
-  processes: boolean | null
+  processed: boolean | null
   processedAt: Date | null
   emailSent: boolean | null
   emailSentAt: Date | null
-  ragprocessed: boolean | null
+  ragProcessed: boolean | null
   ragProcessedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -60,21 +60,21 @@ export type MeetingMaxAggregateOutputType = {
   meetingUrl: string | null
   startTime: Date | null
   endTime: Date | null
-  calenderEventId: string | null
-  isFormCalender: boolean | null
+  calendarEventId: string | null
+  isFromCalendar: boolean | null
   botScheduled: boolean | null
   botSent: boolean | null
   botId: string | null
   botJoinedAt: Date | null
   meetingEnded: boolean | null
-  transcriptReddy: boolean | null
+  transcriptReady: boolean | null
   recordingUrl: string | null
   summary: string | null
-  processes: boolean | null
+  processed: boolean | null
   processedAt: Date | null
   emailSent: boolean | null
   emailSentAt: Date | null
-  ragprocessed: boolean | null
+  ragProcessed: boolean | null
   ragProcessedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -89,24 +89,24 @@ export type MeetingCountAggregateOutputType = {
   startTime: number
   endTime: number
   attendees: number
-  calenderEventId: number
-  isFormCalender: number
+  calendarEventId: number
+  isFromCalendar: number
   botScheduled: number
   botSent: number
   botId: number
   botJoinedAt: number
   meetingEnded: number
-  transcriptReddy: number
+  transcriptReady: number
   transcript: number
   recordingUrl: number
   speakers: number
   summary: number
   actionItems: number
-  processes: number
+  processed: number
   processedAt: number
   emailSent: number
   emailSentAt: number
-  ragprocessed: number
+  ragProcessed: number
   ragProcessedAt: number
   createdAt: number
   updatedAt: number
@@ -122,21 +122,21 @@ export type MeetingMinAggregateInputType = {
   meetingUrl?: true
   startTime?: true
   endTime?: true
-  calenderEventId?: true
-  isFormCalender?: true
+  calendarEventId?: true
+  isFromCalendar?: true
   botScheduled?: true
   botSent?: true
   botId?: true
   botJoinedAt?: true
   meetingEnded?: true
-  transcriptReddy?: true
+  transcriptReady?: true
   recordingUrl?: true
   summary?: true
-  processes?: true
+  processed?: true
   processedAt?: true
   emailSent?: true
   emailSentAt?: true
-  ragprocessed?: true
+  ragProcessed?: true
   ragProcessedAt?: true
   createdAt?: true
   updatedAt?: true
@@ -150,21 +150,21 @@ export type MeetingMaxAggregateInputType = {
   meetingUrl?: true
   startTime?: true
   endTime?: true
-  calenderEventId?: true
-  isFormCalender?: true
+  calendarEventId?: true
+  isFromCalendar?: true
   botScheduled?: true
   botSent?: true
   botId?: true
   botJoinedAt?: true
   meetingEnded?: true
-  transcriptReddy?: true
+  transcriptReady?: true
   recordingUrl?: true
   summary?: true
-  processes?: true
+  processed?: true
   processedAt?: true
   emailSent?: true
   emailSentAt?: true
-  ragprocessed?: true
+  ragProcessed?: true
   ragProcessedAt?: true
   createdAt?: true
   updatedAt?: true
@@ -179,24 +179,24 @@ export type MeetingCountAggregateInputType = {
   startTime?: true
   endTime?: true
   attendees?: true
-  calenderEventId?: true
-  isFormCalender?: true
+  calendarEventId?: true
+  isFromCalendar?: true
   botScheduled?: true
   botSent?: true
   botId?: true
   botJoinedAt?: true
   meetingEnded?: true
-  transcriptReddy?: true
+  transcriptReady?: true
   transcript?: true
   recordingUrl?: true
   speakers?: true
   summary?: true
   actionItems?: true
-  processes?: true
+  processed?: true
   processedAt?: true
   emailSent?: true
   emailSentAt?: true
-  ragprocessed?: true
+  ragProcessed?: true
   ragProcessedAt?: true
   createdAt?: true
   updatedAt?: true
@@ -284,24 +284,24 @@ export type MeetingGroupByOutputType = {
   startTime: Date
   endTime: Date
   attendees: runtime.JsonValue | null
-  calenderEventId: string | null
-  isFormCalender: boolean
+  calendarEventId: string | null
+  isFromCalendar: boolean
   botScheduled: boolean
   botSent: boolean
   botId: string | null
   botJoinedAt: Date | null
   meetingEnded: boolean
-  transcriptReddy: boolean
+  transcriptReady: boolean
   transcript: runtime.JsonValue | null
   recordingUrl: string | null
   speakers: runtime.JsonValue | null
   summary: string | null
   actionItems: runtime.JsonValue | null
-  processes: boolean
+  processed: boolean
   processedAt: Date | null
   emailSent: boolean
   emailSentAt: Date | null
-  ragprocessed: boolean
+  ragProcessed: boolean
   ragProcessedAt: Date | null
   createdAt: Date
   updatedAt: Date
@@ -337,28 +337,28 @@ export type MeetingWhereInput = {
   startTime?: Prisma.DateTimeFilter<"Meeting"> | Date | string
   endTime?: Prisma.DateTimeFilter<"Meeting"> | Date | string
   attendees?: Prisma.JsonNullableFilter<"Meeting">
-  calenderEventId?: Prisma.StringNullableFilter<"Meeting"> | string | null
-  isFormCalender?: Prisma.BoolFilter<"Meeting"> | boolean
+  calendarEventId?: Prisma.StringNullableFilter<"Meeting"> | string | null
+  isFromCalendar?: Prisma.BoolFilter<"Meeting"> | boolean
   botScheduled?: Prisma.BoolFilter<"Meeting"> | boolean
   botSent?: Prisma.BoolFilter<"Meeting"> | boolean
   botId?: Prisma.StringNullableFilter<"Meeting"> | string | null
   botJoinedAt?: Prisma.DateTimeNullableFilter<"Meeting"> | Date | string | null
   meetingEnded?: Prisma.BoolFilter<"Meeting"> | boolean
-  transcriptReddy?: Prisma.BoolFilter<"Meeting"> | boolean
+  transcriptReady?: Prisma.BoolFilter<"Meeting"> | boolean
   transcript?: Prisma.JsonNullableFilter<"Meeting">
   recordingUrl?: Prisma.StringNullableFilter<"Meeting"> | string | null
   speakers?: Prisma.JsonNullableFilter<"Meeting">
   summary?: Prisma.StringNullableFilter<"Meeting"> | string | null
   actionItems?: Prisma.JsonNullableFilter<"Meeting">
-  processes?: Prisma.BoolFilter<"Meeting"> | boolean
+  processed?: Prisma.BoolFilter<"Meeting"> | boolean
   processedAt?: Prisma.DateTimeNullableFilter<"Meeting"> | Date | string | null
   emailSent?: Prisma.BoolFilter<"Meeting"> | boolean
   emailSentAt?: Prisma.DateTimeNullableFilter<"Meeting"> | Date | string | null
-  ragprocessed?: Prisma.BoolFilter<"Meeting"> | boolean
+  ragProcessed?: Prisma.BoolFilter<"Meeting"> | boolean
   ragProcessedAt?: Prisma.DateTimeNullableFilter<"Meeting"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Meeting"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Meeting"> | Date | string
-  User?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   TranscriptChunk?: Prisma.TranscriptChunkListRelationFilter
 }
 
@@ -371,34 +371,34 @@ export type MeetingOrderByWithRelationInput = {
   startTime?: Prisma.SortOrder
   endTime?: Prisma.SortOrder
   attendees?: Prisma.SortOrderInput | Prisma.SortOrder
-  calenderEventId?: Prisma.SortOrderInput | Prisma.SortOrder
-  isFormCalender?: Prisma.SortOrder
+  calendarEventId?: Prisma.SortOrderInput | Prisma.SortOrder
+  isFromCalendar?: Prisma.SortOrder
   botScheduled?: Prisma.SortOrder
   botSent?: Prisma.SortOrder
   botId?: Prisma.SortOrderInput | Prisma.SortOrder
   botJoinedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   meetingEnded?: Prisma.SortOrder
-  transcriptReddy?: Prisma.SortOrder
+  transcriptReady?: Prisma.SortOrder
   transcript?: Prisma.SortOrderInput | Prisma.SortOrder
   recordingUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   speakers?: Prisma.SortOrderInput | Prisma.SortOrder
   summary?: Prisma.SortOrderInput | Prisma.SortOrder
   actionItems?: Prisma.SortOrderInput | Prisma.SortOrder
-  processes?: Prisma.SortOrder
+  processed?: Prisma.SortOrder
   processedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   emailSent?: Prisma.SortOrder
   emailSentAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  ragprocessed?: Prisma.SortOrder
+  ragProcessed?: Prisma.SortOrder
   ragProcessedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  User?: Prisma.UserOrderByWithRelationInput
+  user?: Prisma.UserOrderByWithRelationInput
   TranscriptChunk?: Prisma.TranscriptChunkOrderByRelationAggregateInput
 }
 
 export type MeetingWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  calenderEventId?: string
+  calendarEventId?: string
   AND?: Prisma.MeetingWhereInput | Prisma.MeetingWhereInput[]
   OR?: Prisma.MeetingWhereInput[]
   NOT?: Prisma.MeetingWhereInput | Prisma.MeetingWhereInput[]
@@ -409,29 +409,29 @@ export type MeetingWhereUniqueInput = Prisma.AtLeast<{
   startTime?: Prisma.DateTimeFilter<"Meeting"> | Date | string
   endTime?: Prisma.DateTimeFilter<"Meeting"> | Date | string
   attendees?: Prisma.JsonNullableFilter<"Meeting">
-  isFormCalender?: Prisma.BoolFilter<"Meeting"> | boolean
+  isFromCalendar?: Prisma.BoolFilter<"Meeting"> | boolean
   botScheduled?: Prisma.BoolFilter<"Meeting"> | boolean
   botSent?: Prisma.BoolFilter<"Meeting"> | boolean
   botId?: Prisma.StringNullableFilter<"Meeting"> | string | null
   botJoinedAt?: Prisma.DateTimeNullableFilter<"Meeting"> | Date | string | null
   meetingEnded?: Prisma.BoolFilter<"Meeting"> | boolean
-  transcriptReddy?: Prisma.BoolFilter<"Meeting"> | boolean
+  transcriptReady?: Prisma.BoolFilter<"Meeting"> | boolean
   transcript?: Prisma.JsonNullableFilter<"Meeting">
   recordingUrl?: Prisma.StringNullableFilter<"Meeting"> | string | null
   speakers?: Prisma.JsonNullableFilter<"Meeting">
   summary?: Prisma.StringNullableFilter<"Meeting"> | string | null
   actionItems?: Prisma.JsonNullableFilter<"Meeting">
-  processes?: Prisma.BoolFilter<"Meeting"> | boolean
+  processed?: Prisma.BoolFilter<"Meeting"> | boolean
   processedAt?: Prisma.DateTimeNullableFilter<"Meeting"> | Date | string | null
   emailSent?: Prisma.BoolFilter<"Meeting"> | boolean
   emailSentAt?: Prisma.DateTimeNullableFilter<"Meeting"> | Date | string | null
-  ragprocessed?: Prisma.BoolFilter<"Meeting"> | boolean
+  ragProcessed?: Prisma.BoolFilter<"Meeting"> | boolean
   ragProcessedAt?: Prisma.DateTimeNullableFilter<"Meeting"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Meeting"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Meeting"> | Date | string
-  User?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   TranscriptChunk?: Prisma.TranscriptChunkListRelationFilter
-}, "id" | "calenderEventId">
+}, "id" | "calendarEventId">
 
 export type MeetingOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -442,24 +442,24 @@ export type MeetingOrderByWithAggregationInput = {
   startTime?: Prisma.SortOrder
   endTime?: Prisma.SortOrder
   attendees?: Prisma.SortOrderInput | Prisma.SortOrder
-  calenderEventId?: Prisma.SortOrderInput | Prisma.SortOrder
-  isFormCalender?: Prisma.SortOrder
+  calendarEventId?: Prisma.SortOrderInput | Prisma.SortOrder
+  isFromCalendar?: Prisma.SortOrder
   botScheduled?: Prisma.SortOrder
   botSent?: Prisma.SortOrder
   botId?: Prisma.SortOrderInput | Prisma.SortOrder
   botJoinedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   meetingEnded?: Prisma.SortOrder
-  transcriptReddy?: Prisma.SortOrder
+  transcriptReady?: Prisma.SortOrder
   transcript?: Prisma.SortOrderInput | Prisma.SortOrder
   recordingUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   speakers?: Prisma.SortOrderInput | Prisma.SortOrder
   summary?: Prisma.SortOrderInput | Prisma.SortOrder
   actionItems?: Prisma.SortOrderInput | Prisma.SortOrder
-  processes?: Prisma.SortOrder
+  processed?: Prisma.SortOrder
   processedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   emailSent?: Prisma.SortOrder
   emailSentAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  ragprocessed?: Prisma.SortOrder
+  ragProcessed?: Prisma.SortOrder
   ragProcessedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -480,24 +480,24 @@ export type MeetingScalarWhereWithAggregatesInput = {
   startTime?: Prisma.DateTimeWithAggregatesFilter<"Meeting"> | Date | string
   endTime?: Prisma.DateTimeWithAggregatesFilter<"Meeting"> | Date | string
   attendees?: Prisma.JsonNullableWithAggregatesFilter<"Meeting">
-  calenderEventId?: Prisma.StringNullableWithAggregatesFilter<"Meeting"> | string | null
-  isFormCalender?: Prisma.BoolWithAggregatesFilter<"Meeting"> | boolean
+  calendarEventId?: Prisma.StringNullableWithAggregatesFilter<"Meeting"> | string | null
+  isFromCalendar?: Prisma.BoolWithAggregatesFilter<"Meeting"> | boolean
   botScheduled?: Prisma.BoolWithAggregatesFilter<"Meeting"> | boolean
   botSent?: Prisma.BoolWithAggregatesFilter<"Meeting"> | boolean
   botId?: Prisma.StringNullableWithAggregatesFilter<"Meeting"> | string | null
   botJoinedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Meeting"> | Date | string | null
   meetingEnded?: Prisma.BoolWithAggregatesFilter<"Meeting"> | boolean
-  transcriptReddy?: Prisma.BoolWithAggregatesFilter<"Meeting"> | boolean
+  transcriptReady?: Prisma.BoolWithAggregatesFilter<"Meeting"> | boolean
   transcript?: Prisma.JsonNullableWithAggregatesFilter<"Meeting">
   recordingUrl?: Prisma.StringNullableWithAggregatesFilter<"Meeting"> | string | null
   speakers?: Prisma.JsonNullableWithAggregatesFilter<"Meeting">
   summary?: Prisma.StringNullableWithAggregatesFilter<"Meeting"> | string | null
   actionItems?: Prisma.JsonNullableWithAggregatesFilter<"Meeting">
-  processes?: Prisma.BoolWithAggregatesFilter<"Meeting"> | boolean
+  processed?: Prisma.BoolWithAggregatesFilter<"Meeting"> | boolean
   processedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Meeting"> | Date | string | null
   emailSent?: Prisma.BoolWithAggregatesFilter<"Meeting"> | boolean
   emailSentAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Meeting"> | Date | string | null
-  ragprocessed?: Prisma.BoolWithAggregatesFilter<"Meeting"> | boolean
+  ragProcessed?: Prisma.BoolWithAggregatesFilter<"Meeting"> | boolean
   ragProcessedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Meeting"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Meeting"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Meeting"> | Date | string
@@ -511,28 +511,28 @@ export type MeetingCreateInput = {
   startTime: Date | string
   endTime: Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: string | null
-  isFormCalender?: boolean
+  calendarEventId?: string | null
+  isFromCalendar?: boolean
   botScheduled?: boolean
   botSent?: boolean
   botId?: string | null
   botJoinedAt?: Date | string | null
   meetingEnded?: boolean
-  transcriptReddy?: boolean
+  transcriptReady?: boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: boolean
+  processed?: boolean
   processedAt?: Date | string | null
   emailSent?: boolean
   emailSentAt?: Date | string | null
-  ragprocessed?: boolean
+  ragProcessed?: boolean
   ragProcessedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  User: Prisma.UserCreateNestedOneWithoutMeetingsInput
+  user: Prisma.UserCreateNestedOneWithoutMeetingsInput
   TranscriptChunk?: Prisma.TranscriptChunkCreateNestedManyWithoutMeetingInput
 }
 
@@ -545,24 +545,24 @@ export type MeetingUncheckedCreateInput = {
   startTime: Date | string
   endTime: Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: string | null
-  isFormCalender?: boolean
+  calendarEventId?: string | null
+  isFromCalendar?: boolean
   botScheduled?: boolean
   botSent?: boolean
   botId?: string | null
   botJoinedAt?: Date | string | null
   meetingEnded?: boolean
-  transcriptReddy?: boolean
+  transcriptReady?: boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: boolean
+  processed?: boolean
   processedAt?: Date | string | null
   emailSent?: boolean
   emailSentAt?: Date | string | null
-  ragprocessed?: boolean
+  ragProcessed?: boolean
   ragProcessedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -577,28 +577,28 @@ export type MeetingUpdateInput = {
   startTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isFormCalender?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isFromCalendar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botScheduled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botJoinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   meetingEnded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  transcriptReddy?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  transcriptReady?: Prisma.BoolFieldUpdateOperationsInput | boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  processed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   emailSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   emailSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ragprocessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ragProcessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ragProcessedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  User?: Prisma.UserUpdateOneRequiredWithoutMeetingsNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutMeetingsNestedInput
   TranscriptChunk?: Prisma.TranscriptChunkUpdateManyWithoutMeetingNestedInput
 }
 
@@ -611,24 +611,24 @@ export type MeetingUncheckedUpdateInput = {
   startTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isFormCalender?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isFromCalendar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botScheduled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botJoinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   meetingEnded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  transcriptReddy?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  transcriptReady?: Prisma.BoolFieldUpdateOperationsInput | boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  processed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   emailSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   emailSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ragprocessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ragProcessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ragProcessedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -644,24 +644,24 @@ export type MeetingCreateManyInput = {
   startTime: Date | string
   endTime: Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: string | null
-  isFormCalender?: boolean
+  calendarEventId?: string | null
+  isFromCalendar?: boolean
   botScheduled?: boolean
   botSent?: boolean
   botId?: string | null
   botJoinedAt?: Date | string | null
   meetingEnded?: boolean
-  transcriptReddy?: boolean
+  transcriptReady?: boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: boolean
+  processed?: boolean
   processedAt?: Date | string | null
   emailSent?: boolean
   emailSentAt?: Date | string | null
-  ragprocessed?: boolean
+  ragProcessed?: boolean
   ragProcessedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -675,24 +675,24 @@ export type MeetingUpdateManyMutationInput = {
   startTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isFormCalender?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isFromCalendar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botScheduled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botJoinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   meetingEnded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  transcriptReddy?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  transcriptReady?: Prisma.BoolFieldUpdateOperationsInput | boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  processed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   emailSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   emailSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ragprocessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ragProcessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ragProcessedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -707,24 +707,24 @@ export type MeetingUncheckedUpdateManyInput = {
   startTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isFormCalender?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isFromCalendar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botScheduled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botJoinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   meetingEnded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  transcriptReddy?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  transcriptReady?: Prisma.BoolFieldUpdateOperationsInput | boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  processed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   emailSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   emailSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ragprocessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ragProcessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ragProcessedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -749,24 +749,24 @@ export type MeetingCountOrderByAggregateInput = {
   startTime?: Prisma.SortOrder
   endTime?: Prisma.SortOrder
   attendees?: Prisma.SortOrder
-  calenderEventId?: Prisma.SortOrder
-  isFormCalender?: Prisma.SortOrder
+  calendarEventId?: Prisma.SortOrder
+  isFromCalendar?: Prisma.SortOrder
   botScheduled?: Prisma.SortOrder
   botSent?: Prisma.SortOrder
   botId?: Prisma.SortOrder
   botJoinedAt?: Prisma.SortOrder
   meetingEnded?: Prisma.SortOrder
-  transcriptReddy?: Prisma.SortOrder
+  transcriptReady?: Prisma.SortOrder
   transcript?: Prisma.SortOrder
   recordingUrl?: Prisma.SortOrder
   speakers?: Prisma.SortOrder
   summary?: Prisma.SortOrder
   actionItems?: Prisma.SortOrder
-  processes?: Prisma.SortOrder
+  processed?: Prisma.SortOrder
   processedAt?: Prisma.SortOrder
   emailSent?: Prisma.SortOrder
   emailSentAt?: Prisma.SortOrder
-  ragprocessed?: Prisma.SortOrder
+  ragProcessed?: Prisma.SortOrder
   ragProcessedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -780,21 +780,21 @@ export type MeetingMaxOrderByAggregateInput = {
   meetingUrl?: Prisma.SortOrder
   startTime?: Prisma.SortOrder
   endTime?: Prisma.SortOrder
-  calenderEventId?: Prisma.SortOrder
-  isFormCalender?: Prisma.SortOrder
+  calendarEventId?: Prisma.SortOrder
+  isFromCalendar?: Prisma.SortOrder
   botScheduled?: Prisma.SortOrder
   botSent?: Prisma.SortOrder
   botId?: Prisma.SortOrder
   botJoinedAt?: Prisma.SortOrder
   meetingEnded?: Prisma.SortOrder
-  transcriptReddy?: Prisma.SortOrder
+  transcriptReady?: Prisma.SortOrder
   recordingUrl?: Prisma.SortOrder
   summary?: Prisma.SortOrder
-  processes?: Prisma.SortOrder
+  processed?: Prisma.SortOrder
   processedAt?: Prisma.SortOrder
   emailSent?: Prisma.SortOrder
   emailSentAt?: Prisma.SortOrder
-  ragprocessed?: Prisma.SortOrder
+  ragProcessed?: Prisma.SortOrder
   ragProcessedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -808,21 +808,21 @@ export type MeetingMinOrderByAggregateInput = {
   meetingUrl?: Prisma.SortOrder
   startTime?: Prisma.SortOrder
   endTime?: Prisma.SortOrder
-  calenderEventId?: Prisma.SortOrder
-  isFormCalender?: Prisma.SortOrder
+  calendarEventId?: Prisma.SortOrder
+  isFromCalendar?: Prisma.SortOrder
   botScheduled?: Prisma.SortOrder
   botSent?: Prisma.SortOrder
   botId?: Prisma.SortOrder
   botJoinedAt?: Prisma.SortOrder
   meetingEnded?: Prisma.SortOrder
-  transcriptReddy?: Prisma.SortOrder
+  transcriptReady?: Prisma.SortOrder
   recordingUrl?: Prisma.SortOrder
   summary?: Prisma.SortOrder
-  processes?: Prisma.SortOrder
+  processed?: Prisma.SortOrder
   processedAt?: Prisma.SortOrder
   emailSent?: Prisma.SortOrder
   emailSentAt?: Prisma.SortOrder
-  ragprocessed?: Prisma.SortOrder
+  ragProcessed?: Prisma.SortOrder
   ragProcessedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -897,24 +897,24 @@ export type MeetingCreateWithoutUserInput = {
   startTime: Date | string
   endTime: Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: string | null
-  isFormCalender?: boolean
+  calendarEventId?: string | null
+  isFromCalendar?: boolean
   botScheduled?: boolean
   botSent?: boolean
   botId?: string | null
   botJoinedAt?: Date | string | null
   meetingEnded?: boolean
-  transcriptReddy?: boolean
+  transcriptReady?: boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: boolean
+  processed?: boolean
   processedAt?: Date | string | null
   emailSent?: boolean
   emailSentAt?: Date | string | null
-  ragprocessed?: boolean
+  ragProcessed?: boolean
   ragProcessedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -929,24 +929,24 @@ export type MeetingUncheckedCreateWithoutUserInput = {
   startTime: Date | string
   endTime: Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: string | null
-  isFormCalender?: boolean
+  calendarEventId?: string | null
+  isFromCalendar?: boolean
   botScheduled?: boolean
   botSent?: boolean
   botId?: string | null
   botJoinedAt?: Date | string | null
   meetingEnded?: boolean
-  transcriptReddy?: boolean
+  transcriptReady?: boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: boolean
+  processed?: boolean
   processedAt?: Date | string | null
   emailSent?: boolean
   emailSentAt?: Date | string | null
-  ragprocessed?: boolean
+  ragProcessed?: boolean
   ragProcessedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -991,24 +991,24 @@ export type MeetingScalarWhereInput = {
   startTime?: Prisma.DateTimeFilter<"Meeting"> | Date | string
   endTime?: Prisma.DateTimeFilter<"Meeting"> | Date | string
   attendees?: Prisma.JsonNullableFilter<"Meeting">
-  calenderEventId?: Prisma.StringNullableFilter<"Meeting"> | string | null
-  isFormCalender?: Prisma.BoolFilter<"Meeting"> | boolean
+  calendarEventId?: Prisma.StringNullableFilter<"Meeting"> | string | null
+  isFromCalendar?: Prisma.BoolFilter<"Meeting"> | boolean
   botScheduled?: Prisma.BoolFilter<"Meeting"> | boolean
   botSent?: Prisma.BoolFilter<"Meeting"> | boolean
   botId?: Prisma.StringNullableFilter<"Meeting"> | string | null
   botJoinedAt?: Prisma.DateTimeNullableFilter<"Meeting"> | Date | string | null
   meetingEnded?: Prisma.BoolFilter<"Meeting"> | boolean
-  transcriptReddy?: Prisma.BoolFilter<"Meeting"> | boolean
+  transcriptReady?: Prisma.BoolFilter<"Meeting"> | boolean
   transcript?: Prisma.JsonNullableFilter<"Meeting">
   recordingUrl?: Prisma.StringNullableFilter<"Meeting"> | string | null
   speakers?: Prisma.JsonNullableFilter<"Meeting">
   summary?: Prisma.StringNullableFilter<"Meeting"> | string | null
   actionItems?: Prisma.JsonNullableFilter<"Meeting">
-  processes?: Prisma.BoolFilter<"Meeting"> | boolean
+  processed?: Prisma.BoolFilter<"Meeting"> | boolean
   processedAt?: Prisma.DateTimeNullableFilter<"Meeting"> | Date | string | null
   emailSent?: Prisma.BoolFilter<"Meeting"> | boolean
   emailSentAt?: Prisma.DateTimeNullableFilter<"Meeting"> | Date | string | null
-  ragprocessed?: Prisma.BoolFilter<"Meeting"> | boolean
+  ragProcessed?: Prisma.BoolFilter<"Meeting"> | boolean
   ragProcessedAt?: Prisma.DateTimeNullableFilter<"Meeting"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"Meeting"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Meeting"> | Date | string
@@ -1022,28 +1022,28 @@ export type MeetingCreateWithoutTranscriptChunkInput = {
   startTime: Date | string
   endTime: Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: string | null
-  isFormCalender?: boolean
+  calendarEventId?: string | null
+  isFromCalendar?: boolean
   botScheduled?: boolean
   botSent?: boolean
   botId?: string | null
   botJoinedAt?: Date | string | null
   meetingEnded?: boolean
-  transcriptReddy?: boolean
+  transcriptReady?: boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: boolean
+  processed?: boolean
   processedAt?: Date | string | null
   emailSent?: boolean
   emailSentAt?: Date | string | null
-  ragprocessed?: boolean
+  ragProcessed?: boolean
   ragProcessedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  User: Prisma.UserCreateNestedOneWithoutMeetingsInput
+  user: Prisma.UserCreateNestedOneWithoutMeetingsInput
 }
 
 export type MeetingUncheckedCreateWithoutTranscriptChunkInput = {
@@ -1055,24 +1055,24 @@ export type MeetingUncheckedCreateWithoutTranscriptChunkInput = {
   startTime: Date | string
   endTime: Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: string | null
-  isFormCalender?: boolean
+  calendarEventId?: string | null
+  isFromCalendar?: boolean
   botScheduled?: boolean
   botSent?: boolean
   botId?: string | null
   botJoinedAt?: Date | string | null
   meetingEnded?: boolean
-  transcriptReddy?: boolean
+  transcriptReady?: boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: boolean
+  processed?: boolean
   processedAt?: Date | string | null
   emailSent?: boolean
   emailSentAt?: Date | string | null
-  ragprocessed?: boolean
+  ragProcessed?: boolean
   ragProcessedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1102,28 +1102,28 @@ export type MeetingUpdateWithoutTranscriptChunkInput = {
   startTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isFormCalender?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isFromCalendar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botScheduled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botJoinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   meetingEnded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  transcriptReddy?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  transcriptReady?: Prisma.BoolFieldUpdateOperationsInput | boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  processed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   emailSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   emailSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ragprocessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ragProcessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ragProcessedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  User?: Prisma.UserUpdateOneRequiredWithoutMeetingsNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutMeetingsNestedInput
 }
 
 export type MeetingUncheckedUpdateWithoutTranscriptChunkInput = {
@@ -1135,24 +1135,24 @@ export type MeetingUncheckedUpdateWithoutTranscriptChunkInput = {
   startTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isFormCalender?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isFromCalendar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botScheduled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botJoinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   meetingEnded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  transcriptReddy?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  transcriptReady?: Prisma.BoolFieldUpdateOperationsInput | boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  processed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   emailSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   emailSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ragprocessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ragProcessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ragProcessedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1166,24 +1166,24 @@ export type MeetingCreateManyUserInput = {
   startTime: Date | string
   endTime: Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: string | null
-  isFormCalender?: boolean
+  calendarEventId?: string | null
+  isFromCalendar?: boolean
   botScheduled?: boolean
   botSent?: boolean
   botId?: string | null
   botJoinedAt?: Date | string | null
   meetingEnded?: boolean
-  transcriptReddy?: boolean
+  transcriptReady?: boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: boolean
+  processed?: boolean
   processedAt?: Date | string | null
   emailSent?: boolean
   emailSentAt?: Date | string | null
-  ragprocessed?: boolean
+  ragProcessed?: boolean
   ragProcessedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1197,24 +1197,24 @@ export type MeetingUpdateWithoutUserInput = {
   startTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isFormCalender?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isFromCalendar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botScheduled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botJoinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   meetingEnded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  transcriptReddy?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  transcriptReady?: Prisma.BoolFieldUpdateOperationsInput | boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  processed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   emailSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   emailSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ragprocessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ragProcessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ragProcessedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1229,24 +1229,24 @@ export type MeetingUncheckedUpdateWithoutUserInput = {
   startTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isFormCalender?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isFromCalendar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botScheduled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botJoinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   meetingEnded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  transcriptReddy?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  transcriptReady?: Prisma.BoolFieldUpdateOperationsInput | boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  processed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   emailSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   emailSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ragprocessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ragProcessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ragProcessedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1261,24 +1261,24 @@ export type MeetingUncheckedUpdateManyWithoutUserInput = {
   startTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   attendees?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  calenderEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isFormCalender?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  calendarEventId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isFromCalendar?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botScheduled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   botId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   botJoinedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   meetingEnded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  transcriptReddy?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  transcriptReady?: Prisma.BoolFieldUpdateOperationsInput | boolean
   transcript?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   recordingUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   speakers?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   actionItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  processes?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  processed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   emailSent?: Prisma.BoolFieldUpdateOperationsInput | boolean
   emailSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  ragprocessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  ragProcessed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   ragProcessedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1324,28 +1324,28 @@ export type MeetingSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   startTime?: boolean
   endTime?: boolean
   attendees?: boolean
-  calenderEventId?: boolean
-  isFormCalender?: boolean
+  calendarEventId?: boolean
+  isFromCalendar?: boolean
   botScheduled?: boolean
   botSent?: boolean
   botId?: boolean
   botJoinedAt?: boolean
   meetingEnded?: boolean
-  transcriptReddy?: boolean
+  transcriptReady?: boolean
   transcript?: boolean
   recordingUrl?: boolean
   speakers?: boolean
   summary?: boolean
   actionItems?: boolean
-  processes?: boolean
+  processed?: boolean
   processedAt?: boolean
   emailSent?: boolean
   emailSentAt?: boolean
-  ragprocessed?: boolean
+  ragProcessed?: boolean
   ragProcessedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  User?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   TranscriptChunk?: boolean | Prisma.Meeting$TranscriptChunkArgs<ExtArgs>
   _count?: boolean | Prisma.MeetingCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["meeting"]>
@@ -1359,28 +1359,28 @@ export type MeetingSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   startTime?: boolean
   endTime?: boolean
   attendees?: boolean
-  calenderEventId?: boolean
-  isFormCalender?: boolean
+  calendarEventId?: boolean
+  isFromCalendar?: boolean
   botScheduled?: boolean
   botSent?: boolean
   botId?: boolean
   botJoinedAt?: boolean
   meetingEnded?: boolean
-  transcriptReddy?: boolean
+  transcriptReady?: boolean
   transcript?: boolean
   recordingUrl?: boolean
   speakers?: boolean
   summary?: boolean
   actionItems?: boolean
-  processes?: boolean
+  processed?: boolean
   processedAt?: boolean
   emailSent?: boolean
   emailSentAt?: boolean
-  ragprocessed?: boolean
+  ragProcessed?: boolean
   ragProcessedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  User?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["meeting"]>
 
 export type MeetingSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1392,28 +1392,28 @@ export type MeetingSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   startTime?: boolean
   endTime?: boolean
   attendees?: boolean
-  calenderEventId?: boolean
-  isFormCalender?: boolean
+  calendarEventId?: boolean
+  isFromCalendar?: boolean
   botScheduled?: boolean
   botSent?: boolean
   botId?: boolean
   botJoinedAt?: boolean
   meetingEnded?: boolean
-  transcriptReddy?: boolean
+  transcriptReady?: boolean
   transcript?: boolean
   recordingUrl?: boolean
   speakers?: boolean
   summary?: boolean
   actionItems?: boolean
-  processes?: boolean
+  processed?: boolean
   processedAt?: boolean
   emailSent?: boolean
   emailSentAt?: boolean
-  ragprocessed?: boolean
+  ragProcessed?: boolean
   ragProcessedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  User?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["meeting"]>
 
 export type MeetingSelectScalar = {
@@ -1425,46 +1425,46 @@ export type MeetingSelectScalar = {
   startTime?: boolean
   endTime?: boolean
   attendees?: boolean
-  calenderEventId?: boolean
-  isFormCalender?: boolean
+  calendarEventId?: boolean
+  isFromCalendar?: boolean
   botScheduled?: boolean
   botSent?: boolean
   botId?: boolean
   botJoinedAt?: boolean
   meetingEnded?: boolean
-  transcriptReddy?: boolean
+  transcriptReady?: boolean
   transcript?: boolean
   recordingUrl?: boolean
   speakers?: boolean
   summary?: boolean
   actionItems?: boolean
-  processes?: boolean
+  processed?: boolean
   processedAt?: boolean
   emailSent?: boolean
   emailSentAt?: boolean
-  ragprocessed?: boolean
+  ragProcessed?: boolean
   ragProcessedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type MeetingOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "title" | "description" | "meetingUrl" | "startTime" | "endTime" | "attendees" | "calenderEventId" | "isFormCalender" | "botScheduled" | "botSent" | "botId" | "botJoinedAt" | "meetingEnded" | "transcriptReddy" | "transcript" | "recordingUrl" | "speakers" | "summary" | "actionItems" | "processes" | "processedAt" | "emailSent" | "emailSentAt" | "ragprocessed" | "ragProcessedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["meeting"]>
+export type MeetingOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "title" | "description" | "meetingUrl" | "startTime" | "endTime" | "attendees" | "calendarEventId" | "isFromCalendar" | "botScheduled" | "botSent" | "botId" | "botJoinedAt" | "meetingEnded" | "transcriptReady" | "transcript" | "recordingUrl" | "speakers" | "summary" | "actionItems" | "processed" | "processedAt" | "emailSent" | "emailSentAt" | "ragProcessed" | "ragProcessedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["meeting"]>
 export type MeetingInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  User?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   TranscriptChunk?: boolean | Prisma.Meeting$TranscriptChunkArgs<ExtArgs>
   _count?: boolean | Prisma.MeetingCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type MeetingIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  User?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 export type MeetingIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  User?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
 export type $MeetingPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Meeting"
   objects: {
-    User: Prisma.$UserPayload<ExtArgs>
+    user: Prisma.$UserPayload<ExtArgs>
     TranscriptChunk: Prisma.$TranscriptChunkPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1476,24 +1476,24 @@ export type $MeetingPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     startTime: Date
     endTime: Date
     attendees: runtime.JsonValue | null
-    calenderEventId: string | null
-    isFormCalender: boolean
+    calendarEventId: string | null
+    isFromCalendar: boolean
     botScheduled: boolean
     botSent: boolean
     botId: string | null
     botJoinedAt: Date | null
     meetingEnded: boolean
-    transcriptReddy: boolean
+    transcriptReady: boolean
     transcript: runtime.JsonValue | null
     recordingUrl: string | null
     speakers: runtime.JsonValue | null
     summary: string | null
     actionItems: runtime.JsonValue | null
-    processes: boolean
+    processed: boolean
     processedAt: Date | null
     emailSent: boolean
     emailSentAt: Date | null
-    ragprocessed: boolean
+    ragProcessed: boolean
     ragProcessedAt: Date | null
     createdAt: Date
     updatedAt: Date
@@ -1891,7 +1891,7 @@ readonly fields: MeetingFieldRefs;
  */
 export interface Prisma__MeetingClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  User<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   TranscriptChunk<T extends Prisma.Meeting$TranscriptChunkArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Meeting$TranscriptChunkArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TranscriptChunkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1930,24 +1930,24 @@ export interface MeetingFieldRefs {
   readonly startTime: Prisma.FieldRef<"Meeting", 'DateTime'>
   readonly endTime: Prisma.FieldRef<"Meeting", 'DateTime'>
   readonly attendees: Prisma.FieldRef<"Meeting", 'Json'>
-  readonly calenderEventId: Prisma.FieldRef<"Meeting", 'String'>
-  readonly isFormCalender: Prisma.FieldRef<"Meeting", 'Boolean'>
+  readonly calendarEventId: Prisma.FieldRef<"Meeting", 'String'>
+  readonly isFromCalendar: Prisma.FieldRef<"Meeting", 'Boolean'>
   readonly botScheduled: Prisma.FieldRef<"Meeting", 'Boolean'>
   readonly botSent: Prisma.FieldRef<"Meeting", 'Boolean'>
   readonly botId: Prisma.FieldRef<"Meeting", 'String'>
   readonly botJoinedAt: Prisma.FieldRef<"Meeting", 'DateTime'>
   readonly meetingEnded: Prisma.FieldRef<"Meeting", 'Boolean'>
-  readonly transcriptReddy: Prisma.FieldRef<"Meeting", 'Boolean'>
+  readonly transcriptReady: Prisma.FieldRef<"Meeting", 'Boolean'>
   readonly transcript: Prisma.FieldRef<"Meeting", 'Json'>
   readonly recordingUrl: Prisma.FieldRef<"Meeting", 'String'>
   readonly speakers: Prisma.FieldRef<"Meeting", 'Json'>
   readonly summary: Prisma.FieldRef<"Meeting", 'String'>
   readonly actionItems: Prisma.FieldRef<"Meeting", 'Json'>
-  readonly processes: Prisma.FieldRef<"Meeting", 'Boolean'>
+  readonly processed: Prisma.FieldRef<"Meeting", 'Boolean'>
   readonly processedAt: Prisma.FieldRef<"Meeting", 'DateTime'>
   readonly emailSent: Prisma.FieldRef<"Meeting", 'Boolean'>
   readonly emailSentAt: Prisma.FieldRef<"Meeting", 'DateTime'>
-  readonly ragprocessed: Prisma.FieldRef<"Meeting", 'Boolean'>
+  readonly ragProcessed: Prisma.FieldRef<"Meeting", 'Boolean'>
   readonly ragProcessedAt: Prisma.FieldRef<"Meeting", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"Meeting", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Meeting", 'DateTime'>
